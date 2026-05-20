@@ -33,7 +33,7 @@ use soroban_sdk::{
 
 /// All possible states of a bounty through its lifecycle.
 #[contracttype]
-#[derive(Clone, PartialEq)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum BountyStatus {
     /// Funds locked, awaiting a developer claimant.
     Open,
@@ -294,7 +294,7 @@ mod tests {
         let env = Env::default();
         env.mock_all_auths();
 
-        let contract_id = env.register_contract(None, ZakaBountyContract);
+        let contract_id = env.register(ZakaBountyContract());
         let client = ZakaBountyContractClient::new(&env, &contract_id);
 
         let maintainer = Address::generate(&env);
