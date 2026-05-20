@@ -294,7 +294,7 @@ mod tests {
         let env = Env::default();
         env.mock_all_auths();
 
-        let contract_id = env.register(ZakaBountyContract());
+        let contract_id = env.register(ZakaBountyContract, ());
         let client = ZakaBountyContractClient::new(&env, &contract_id);
 
         let maintainer = Address::generate(&env);
