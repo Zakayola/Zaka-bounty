@@ -362,6 +362,7 @@ mod tests {
         env.ledger().set(LedgerInfo {
             sequence_number: 200,
             timestamp: 12345,
+            protocol_version: 22,
             ..Default::default()
         });
 
